@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cibermissió: Detectius de la Xarxa | Tercer Cicle de Primària</title>
+  <meta name="description" content="Activitat interactiva de cerca i investigació a internet per a 5è i 6è de primària sobre totes les àrees del currículum de Catalunya. Accessible amb lectura de veu.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- CAPÇALERA -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-badge">3r Cicle d'Educació Primària</span>
+        <h1 class="logo-title">
+          <span class="icon-pulse">🔍</span> Cibermissió: Detectius de la Xarxa
+        </h1>
+        <p class="subtitle">16 reptes d'investigació a internet per a totes les àrees oficials del currículum de Catalunya</p>
+      </div>
+
+      <div class="header-controls">
+        <!-- Selector de Nivell -->
+        <div class="level-selector-box">
+          <span class="control-label">Tria el teu curs:</span>
+          <div class="level-buttons" role="radiogroup" aria-label="Selecció de nivell de dificultat">
+            <button type="button" class="btn-level active" id="btn-grade-5" data-grade="5" aria-checked="true">
+              <span class="level-icon">🌱</span>
+              <span class="level-text"><strong>5è de Primària</strong><small>16 reptes</small></span>
+            </button>
+            <button type="button" class="btn-level" id="btn-grade-6" data-grade="6" aria-checked="false">
+              <span class="level-icon">🚀</span>
+              <span class="level-text"><strong>6è de Primària</strong><small>16 reptes</small></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Controls de Veu i So -->
+        <div class="audio-control-group">
+          <button id="btn-read-page" class="btn-audio-voice" title="Llegeix o atura la lectura de la pantalla en veu alta">
+            <span class="voice-icon">🗣️</span> <span id="read-page-text">Escolta la missió</span>
+          </button>
+          <button id="btn-toggle-sound" class="btn-icon" title="Activa/desactiva els efectes de so" aria-label="Efectes de so">
+            🔊
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BARRA D'ESTAT DEL DETECTIU / ALUMNE -->
+  <div class="detective-bar-wrapper">
+    <div class="detective-bar container">
+      <div class="detective-identity">
+        <label for="agent-name-input" class="label-inline">👤 Nom de l'agent / equip:</label>
+        <input type="text" id="agent-name-input" placeholder="Ex: Detectius de 5è A" maxlength="32" value="Agent Investigador/a">
+      </div>
+
+      <div class="detective-stats">
+        <div class="stat-card">
+          <span class="stat-icon">⭐</span>
+          <div>
+            <span class="stat-val" id="score-val">0</span>
+            <span class="stat-name">Punts</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🎯</span>
+          <div>
+            <span class="stat-val" id="badges-val">0/16</span>
+            <span class="stat-name">Reptes Superats</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content container">
+
+    <!-- SECCIÓ DE BENVINGUDA I CONSELLS DE CERCA -->
+    <section class="tips-accordion card">
+      <div class="tips-header" id="tips-toggle-btn" role="button" tabindex="0">
+        <div class="tips-title">
+          <span class="tips-icon">💡</span>
+          <div>
+            <h3>Guia ràpida de cerca: Com investigar a internet com un professional?</h3>
+            <p>Fes clic aquí per veure 4 trucs essencials de recerca digital.</p>
+          </div>
+        </div>
+        <div class="tips-actions">
+          <button type="button" class="btn-listen-small" id="btn-listen-tips" title="Escolta els consells de cerca en veu alta">
+            🗣️ Escolta els consells
+          </button>
+          <span class="accordion-arrow">▼</span>
+        </div>
+      </div>
+      <div class="tips-content" id="tips-content-panel">
+        <div class="tips-grid">
+          <div class="tip-item">
+            <span class="tip-badge">1</span>
+            <h4>Fes servir paraules clau</h4>
+            <p>No escriguis frases llargues com <em>"hola em podries dir qui és..."</em>. Escriu només els conceptes clau: <em>"Pica d'Estats alçada metres"</em>.</p>
+          </div>
+          <div class="tip-item">
+            <span class="tip-badge">2</span>
+            <h4>Comprova dues fonts fiables</h4>
+            <p>No et quedis amb el primer resultat. Comprova si la informació coincideix en enciclopèdies digitals (Viquipèdia/Vikídia), webs de museus o institucions.</p>
+          </div>
+          <div class="tip-item">
+            <span class="tip-badge">3</span>
+            <h4>Cometes per a frases exactes</h4>
+            <p>Si busques una frase literal o el títol d'un llibre, posa'l entre cometes: <strong>"La plaça del Diamant"</strong>.</p>
+          </div>
+          <div class="tip-item">
+            <span class="tip-badge">4</span>
+            <h4>Cercadors recomanats</h4>
+            <p>Pots utilitzar cercadors escolars segurs com <strong>Qwant Junior</strong> o <strong>Vikídia en català</strong>, a més de Google o DuckDuckGo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE PROGRÉS GLOBAL I INSÍGNIES AMB NOMS COMPLETS -->
+    <section class="progress-section card">
+      <div class="progress-info">
+        <div>
+          <span class="progress-badge">Estat de la Missió: <strong id="progress-percentage">0%</strong> completat</span>
+          <h2 class="section-title">Reptes de les 8 Àrees del Currículum (2 preguntes per àrea)</h2>
+          <p class="section-subtitle">Resol les 2 preguntes de cadascuna de les 8 àrees oficials (16 preguntes en total):</p>
+        </div>
+        <button id="btn-quick-reset" class="btn-text" title="Reiniciar les respostes d'aquest curs">↺ Reiniciar missió</button>
+      </div>
+
+      <div class="progress-bar-bg" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="16" id="mission-progress-bar">
+        <div class="progress-bar-fill" id="progress-fill" style="width: 0%;"></div>
+      </div>
+
+      <!-- Llista de xapes o insígnies amb el NOM COMPLET de cada àrea -->
+      <div class="badges-row" id="badges-container">
+        <!-- Generat dinàmicament per JS amb els noms complets -->
+      </div>
+    </section>
+
+    <!-- CRIDA A LA INVESTIGACIÓ -->
+    <div class="mission-intro-banner">
+      <div class="banner-icon">🕵️‍♂️</div>
+      <div class="banner-text">
+        <h3>Com es juga?</h3>
+        <p>Llegeix o <strong>escolta cada repte</strong> amb el botó de veu, <strong>obre una nova pestanya al navegador</strong> per cercar la informació, torna aquí i escriu la resposta. Si te n'encalles, desplega la <strong>pista de paraules clau</strong>!</p>
+      </div>
+    </div>
+
+    <!-- REIXA DE REPTES A TOTA L'AMPLADA (UNA A SOTA DE L'ALTRA) -->
+    <section class="challenges-stack" id="challenges-grid" aria-live="polite">
+      <!-- Les 16 targetes a tota l'amplada s'injectaran dinàmicament aquí -->
+    </section>
+
+    <!-- ENIGMA FINAL (DESBLOQUEJAT EN COMPLETAR TOTES LES 16 PREGUNTES) -->
+    <section class="final-mystery-card card locked" id="final-mystery-section">
+      <div class="mystery-lock-overlay" id="mystery-lock-view">
+        <div class="lock-graphic">🔒</div>
+        <h3>Gran Enigma Final del Ciberdetectiu</h3>
+        <p>Aquest repte especial només es desbloquejarà quan hagis resolt amb èxit les <strong>16 preguntes</strong> de les 8 àrees curriculars.</p>
+        <span class="lock-counter" id="lock-counter-text">Et falten 16 preguntes per resoldre</span>
+      </div>
+
+      <div class="mystery-unlocked-view hidden" id="mystery-unlocked-view">
+        <div class="unlocked-header">
+          <span class="badge-gold">⭐ MISSIÓ EXTRA DESBLOQUEJADA</span>
+          <h2>El Codi Secret de l'Alumnat Investigador</h2>
+          <p>Has resolt els 16 reptes del currículum! Desxifra l'últim misteri per obtenir el teu <strong>Diploma Oficial</strong>.</p>
+        </div>
+
+        <div class="mystery-body" id="mystery-body-content">
+          <!-- Injectat segons el curs -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DE DIPLOMA / CERTIFICAT FINAL -->
+  <div class="modal-overlay hidden" id="diploma-modal">
+    <div class="diploma-wrapper">
+      <button class="modal-close-btn" id="close-diploma-btn" aria-label="Tancar diploma">✕</button>
+
+      <div class="diploma-card" id="printable-diploma">
+        <div class="diploma-border">
+          <div class="diploma-inner">
+            <div class="diploma-decor decor-tl">⚜️</div>
+            <div class="diploma-decor decor-tr">⚜️</div>
+            <div class="diploma-decor decor-bl">⚜️</div>
+            <div class="diploma-decor decor-br">⚜️</div>
+
+            <div class="diploma-header">
+              <span class="diploma-sub">DEPARTAMENT D'EDUCACIÓ DIGITAL</span>
+              <h2 class="diploma-title">DIPLOMA DE MÈRIT</h2>
+              <p class="diploma-subtitle">Gran Mestre/a en Investigació i Cerca a Internet</p>
+            </div>
+
+            <div class="diploma-content">
+              <p class="diploma-awarded-text">Es concedeix amb gran orgull i reconeixement a:</p>
+              <h3 class="diploma-student-name" id="diploma-name-display">Agent Investigador/a</h3>
+              <p class="diploma-text-body">
+                Per haver superat amb èxit i esperit crític els <strong>16 reptes</strong> de recerca digital a la xarxa,
+                demostrant competències digitals d'excel·lència en les 8 àrees curriculars oficials de
+                <strong id="diploma-grade-display">5è de Primària</strong> de Catalunya.
+              </p>
+
+              <div class="diploma-seals-row">
+                <div class="seal-badge">
+                  <span class="seal-icon">🏆</span>
+                  <span class="seal-caption">16/16 Reptes</span>
+                </div>
+                <div class="seal-stamp">
+                  <div class="stamp-circle">
+                    <span>APROVAT AMB</span>
+                    <strong>EXCEL·LÈNCIA</strong>
+                    <span id="diploma-date">2026</span>
+                  </div>
+                </div>
+                <div class="seal-badge">
+                  <span class="seal-icon">⭐</span>
+                  <span class="seal-caption">100% Punts</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="diploma-footer">
+              <div class="signature-box">
+                <div class="signature-line"></div>
+                <span>Firma del Ciberdocent</span>
+              </div>
+              <div class="signature-box">
+                <div class="signature-line"></div>
+                <span>Firma del Ciberdetectiu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-audio-small" id="btn-read-diploma">
+          🗣️ Escolta el diploma
+        </button>
+        <button class="btn btn-primary" id="btn-print-diploma">
+          🖨️ Imprimeix o desa en PDF el teu Diploma
+        </button>
+        <button class="btn btn-secondary" id="btn-continue-playing">
+          Tornar als reptes
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <p><strong>Cibermissió Tercer Cicle (16 Reptes)</strong> &bull; Recurs educatiu competencial basat en el currículum oficial de Catalunya (Decret 175/2022).</p>
+      <p class="small-disclaimer">Fomenta la competència digital, la cerca crítica d'informació, la verificació de fonts, l'autonomia i l'accessibilitat auditiva.</p>
+    </div>
+  </footer>
+
+  <!-- CANVAS CONFETTI -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
