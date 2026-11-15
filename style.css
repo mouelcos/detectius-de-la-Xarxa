@@ -1,0 +1,1440 @@
+/* ========================================================
+   CIBERMISSIÓ - DETECTIUS DE LA XARXA
+   Estils per al Tercer Cicle de Primària (5è i 6è)
+   Fitxes a tota l'amplada i suport de veu
+   ======================================================== */
+
+:root {
+  --font-main: 'Nunito', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Fredoka', cursive, sans-serif;
+
+  /* Paleta cromàtica */
+  --bg-gradient: linear-gradient(135deg, #f0f7ff 0%, #e6efff 50%, #fbf5ff 100%);
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary: #7c3aed;
+  --accent-gold: #f59e0b;
+  --success: #10b981;
+  --success-bg: #ecfdf5;
+  --error: #ef4444;
+  --error-bg: #fef2f2;
+  --card-bg: #ffffff;
+  --border-radius: 18px;
+  --box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.05);
+  --box-shadow-hover: 0 16px 32px -8px rgba(37, 99, 235, 0.18);
+
+  /* Colors d'àrees curriculars */
+  --color-medi: #059669;
+  --color-medi-bg: #ecfdf5;
+  --color-catala: #d97706;
+  --color-catala-bg: #fffbeb;
+  --color-castella: #dc2626;
+  --color-castella-bg: #fef2f2;
+  --color-angles: #0284c7;
+  --color-angles-bg: #f0f9ff;
+  --color-mates: #7c3aed;
+  --color-mates-bg: #f5f3ff;
+  --color-artistica: #db2777;
+  --color-artistica-bg: #fdf2f8;
+  --color-ef: #ea580c;
+  --color-ef-bg: #fff7ed;
+  --color-valors: #0d9488;
+  --color-valors-bg: #f0fdfa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  color: var(--text-dark);
+  min-height: 100vh;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========================================================
+   CAPÇALERA I LOGO
+   ======================================================== */
+.main-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding: 24px 0 28px 0;
+  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.25);
+  position: relative;
+}
+
+.header-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.brand-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo-title {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.icon-pulse {
+  display: inline-block;
+  animation: pulse-zoom 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15) rotate(-5deg); }
+}
+
+.subtitle {
+  font-size: 1.02rem;
+  opacity: 0.94;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.level-selector-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #dbeafe;
+}
+
+.level-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-level {
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid transparent;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-main);
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.btn-level:hover {
+  background: rgba(255, 255, 255, 0.38);
+  transform: translateY(-2px);
+}
+
+.btn-level.active {
+  background: #ffffff;
+  color: #1e3a8a;
+  border-color: #facc15;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
+}
+
+.level-icon {
+  font-size: 1.4rem;
+}
+
+.level-text strong {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+
+.level-text small {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.audio-control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-audio-voice {
+  background: #fef08a;
+  color: #854d0e;
+  border: 2px solid #facc15;
+  padding: 9px 14px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-audio-voice:hover {
+  background: #fde047;
+  transform: translateY(-2px);
+}
+
+.btn-audio-voice.speaking {
+  background: #f87171;
+  color: #ffffff;
+  border-color: #ef4444;
+  animation: pulse-speaking 1s infinite alternate;
+}
+
+@keyframes pulse-speaking {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.btn-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 1.3rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: #ffffff;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.1);
+}
+
+/* ========================================================
+   BARRA D'ESTAT DE L'AGENT
+   ======================================================== */
+.detective-bar-wrapper {
+  background: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 12px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.detective-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.detective-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.label-inline {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+#agent-name-input {
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  outline: none;
+  transition: all 0.2s;
+  width: 100%;
+  max-width: 340px;
+}
+
+#agent-name-input:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.detective-stats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stat-card {
+  background: #f1f5f9;
+  padding: 6px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-val {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  line-height: 1;
+}
+
+.stat-name {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ========================================================
+   CONTINGUT PRINCIPAL I TARGETES
+   ======================================================== */
+.main-content {
+  padding-top: 26px;
+  padding-bottom: 50px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Consells de cerca */
+.tips-accordion {
+  border-left: 6px solid #f59e0b;
+}
+
+.tips-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tips-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tips-icon {
+  font-size: 2rem;
+  background: #fef3c7;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.tips-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #92400e;
+}
+
+.tips-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.tips-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-listen-small {
+  background: #fef9c3;
+  color: #713f12;
+  border: 1px solid #fde047;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-listen-small:hover {
+  background: #fef08a;
+}
+
+.accordion-arrow {
+  font-size: 1rem;
+  color: #92400e;
+  transition: transform 0.3s ease;
+}
+
+.tips-accordion.open .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.tips-content {
+  display: none;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed #fde68a;
+}
+
+.tips-accordion.open .tips-content {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.tip-item {
+  background: #fffbeb;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #fef3c7;
+  position: relative;
+}
+
+.tip-badge {
+  display: inline-block;
+  background: #f59e0b;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.tip-item h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #78350f;
+}
+
+.tip-item p {
+  font-size: 0.85rem;
+  color: #451a03;
+}
+
+/* Barra de Progrés */
+.progress-section {
+  background: #ffffff;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.progress-badge {
+  display: inline-block;
+  background: #eff6ff;
+  color: #1e40af;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  color: var(--text-dark);
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-text:hover {
+  color: var(--error);
+  background: #fee2e2;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 18px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Xapes / Insígnies amb NOM COMPLET */
+.badges-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.badge-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #475569;
+  transition: all 0.3s;
+}
+
+.badge-chip .badge-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-chip .badge-count {
+  font-size: 0.78rem;
+  background: #e2e8f0;
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: #334155;
+  font-weight: 800;
+}
+
+.badge-chip.earned {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.18);
+  transform: translateY(-2px);
+}
+
+.badge-chip.earned .badge-count {
+  background: #bbf7d0;
+  color: #14532d;
+}
+
+/* Banner explicatiu */
+.mission-intro-banner {
+  background: linear-gradient(135deg, #e0f2fe 0%, #ede9fe 100%);
+  border: 2px dashed #818cf8;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.banner-icon {
+  font-size: 2.2rem;
+}
+
+.banner-text h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #3730a3;
+  margin-bottom: 2px;
+}
+
+.banner-text p {
+  font-size: 0.95rem;
+  color: #4338ca;
+}
+
+/* ========================================================
+   DISPOSICIÓ A TOTA L'AMPLADA (STACK: UNA A SOTA DE L'ALTRA)
+   ======================================================== */
+.challenges-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.challenge-card {
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 2px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.25s;
+}
+
+.challenge-card:hover {
+  box-shadow: var(--box-shadow-hover);
+  border-color: #cbd5e1;
+}
+
+.challenge-card.completed {
+  border-color: #10b981;
+  background: #fcfdfd;
+}
+
+/* Capçalera de cada fitxa de repte */
+.challenge-header {
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.area-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.area-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.area-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.area-badge {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.area-question-num {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.header-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-speak-challenge {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-speak-challenge:hover {
+  background: #f8fafc;
+  border-color: #3b82f6;
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.status-pill {
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  background: #f1f5f9;
+  color: #64748b;
+  letter-spacing: 0.4px;
+}
+
+.status-pill.done {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Cos de la fitxa */
+.challenge-body {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mission-tag {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.search-context-callout {
+  background: #f8fafc;
+  border-left: 4px solid #3b82f6;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.search-context-callout strong {
+  color: #1e40af;
+}
+
+/* Pistes */
+.hint-toggle-wrapper {
+  margin-bottom: 16px;
+}
+
+.btn-hint {
+  background: none;
+  border: 1px dashed #f59e0b;
+  color: #b45309;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-hint:hover {
+  background: #fef3c7;
+}
+
+.hint-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #78350f;
+  margin-top: 10px;
+  display: none;
+}
+
+.hint-box.active {
+  display: block;
+  animation: fadeIn 0.2s;
+}
+
+.hint-box code {
+  background: #fef08a;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: #713f12;
+}
+
+/* Secció de Resposta */
+.answer-section {
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.answer-input {
+  flex: 1;
+  min-width: 260px;
+  padding: 12px 16px;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: var(--font-main);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.answer-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-verify {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-verify:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.feedback-msg {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  display: none;
+  line-height: 1.45;
+  margin-top: 10px;
+}
+
+.feedback-msg.show {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+.feedback-msg.success {
+  background: var(--success-bg);
+  color: #065f46;
+  border: 1.5px solid #a7f3d0;
+}
+
+.feedback-msg.error {
+  background: var(--error-bg);
+  color: #991b1b;
+  border: 1.5px solid #fecaca;
+}
+
+/* Camps de font consultada */
+.source-field-box {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.source-field-box label {
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.source-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #334155;
+}
+
+/* Colors de capçalera per àrees */
+.area-medi .challenge-header { background: var(--color-medi-bg); }
+.area-medi .area-icon-wrap { background: #d1fae5; color: var(--color-medi); }
+.area-catala .challenge-header { background: var(--color-catala-bg); }
+.area-catala .area-icon-wrap { background: #fef3c7; color: var(--color-catala); }
+.area-castella .challenge-header { background: var(--color-castella-bg); }
+.area-castella .area-icon-wrap { background: #fee2e2; color: var(--color-castella); }
+.area-angles .challenge-header { background: var(--color-angles-bg); }
+.area-angles .area-icon-wrap { background: #e0f2fe; color: var(--color-angles); }
+.area-mates .challenge-header { background: var(--color-mates-bg); }
+.area-mates .area-icon-wrap { background: #ede9fe; color: var(--color-mates); }
+.area-artistica .challenge-header { background: var(--color-artistica-bg); }
+.area-artistica .area-icon-wrap { background: #fce7f3; color: var(--color-artistica); }
+.area-ef .challenge-header { background: var(--color-ef-bg); }
+.area-ef .area-icon-wrap { background: #ffedd5; color: var(--color-ef); }
+.area-valors .challenge-header { background: var(--color-valors-bg); }
+.area-valors .area-icon-wrap { background: #ccfbf1; color: var(--color-valors); }
+
+/* ========================================================
+   ENIGMA FINAL (DESBLOQUEJAT)
+   ======================================================== */
+.final-mystery-card {
+  border: 3px solid #8b5cf6;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+  width: 100%;
+}
+
+.final-mystery-card.locked {
+  background: #f8fafc;
+  text-align: center;
+  border-style: dashed;
+}
+
+.mystery-lock-overlay {
+  padding: 40px 20px;
+}
+
+.lock-graphic {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.mystery-lock-overlay h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.mystery-lock-overlay p {
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 auto 16px auto;
+}
+
+.lock-counter {
+  display: inline-block;
+  background: #ede9fe;
+  color: #6d28d9;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.mystery-unlocked-view {
+  background: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
+  padding: 10px 0;
+}
+
+.unlocked-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.badge-gold {
+  display: inline-block;
+  background: #fef08a;
+  color: #854d0e;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.unlocked-header h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: #581c87;
+}
+
+.mystery-body-box {
+  background: #ffffff;
+  border: 2px solid #d8b4fe;
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.mystery-question {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #3b0764;
+  margin-bottom: 16px;
+}
+
+/* ========================================================
+   BOTONS GENERALS
+   ======================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.btn-secondary:hover {
+  background: #cbd5e1;
+}
+
+.btn-audio-small {
+  background: #fef9c3;
+  color: #854d0e;
+  border: 1px solid #fde047;
+}
+
+.btn-audio-small:hover {
+  background: #fef08a;
+}
+
+/* ========================================================
+   MODAL DE DIPLOMA (CERTIFICAT)
+   ======================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.diploma-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 820px;
+  width: 100%;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  max-height: 95vh;
+  overflow-y: auto;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  background: #f1f5f9;
+  border: none;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Disseny del Diploma Imprimible */
+.diploma-card {
+  background: #fffdf9;
+  padding: 15px;
+  border: 1px solid #f1e6d0;
+  margin-bottom: 20px;
+}
+
+.diploma-border {
+  border: 6px double #b45309;
+  padding: 10px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.diploma-inner {
+  border: 2px solid #fde68a;
+  padding: 30px 25px;
+  position: relative;
+  text-align: center;
+}
+
+.diploma-decor {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.75;
+}
+.decor-tl { top: 8px; left: 8px; }
+.decor-tr { top: 8px; right: 8px; }
+.decor-bl { bottom: 8px; left: 8px; }
+.decor-br { bottom: 8px; right: 8px; }
+
+.diploma-sub {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #92400e;
+  text-transform: uppercase;
+}
+
+.diploma-title {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  color: #78350f;
+  margin: 6px 0 2px 0;
+  letter-spacing: 1px;
+}
+
+.diploma-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 20px;
+}
+
+.diploma-awarded-text {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.diploma-student-name {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  color: #1e3a8a;
+  margin: 10px 0 16px 0;
+  border-bottom: 2px dashed #cbd5e1;
+  display: inline-block;
+  padding: 0 30px 6px 30px;
+}
+
+.diploma-text-body {
+  font-size: 0.98rem;
+  color: #334155;
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  line-height: 1.55;
+}
+
+.diploma-seals-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.seal-badge {
+  text-align: center;
+}
+
+.seal-icon {
+  font-size: 2.2rem;
+  display: block;
+}
+
+.seal-caption {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #475569;
+}
+
+.seal-stamp {
+  width: 90px;
+  height: 90px;
+  border: 3px dashed #b45309;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-10deg);
+  background: #fffbeb;
+}
+
+.stamp-circle {
+  text-align: center;
+  font-size: 0.65rem;
+  color: #b45309;
+  line-height: 1.1;
+}
+
+.stamp-circle strong {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.diploma-footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+  padding-top: 15px;
+}
+
+.signature-box {
+  width: 180px;
+  text-align: center;
+}
+
+.signature-line {
+  border-top: 1.5px solid #64748b;
+  margin-bottom: 6px;
+}
+
+.signature-box span {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========================================================
+   PEU DE PÀGINA
+   ======================================================== */
+.main-footer {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.small-disclaimer {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Canvas Confetti */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Animacions auxiliars */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ========================================================
+   ESTILS D'IMPRESSIÓ PER AL DIPLOMA (@media print)
+   ======================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .modal-overlay,
+  .diploma-wrapper,
+  #printable-diploma,
+  #printable-diploma * {
+    visibility: visible;
+  }
+  .modal-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    padding: 0;
+    display: block;
+  }
+  .diploma-wrapper {
+    box-shadow: none;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .modal-close-btn,
+  .modal-actions {
+    display: none !important;
+  }
+}
+
+/* ========================================================
+   RESPONSIVE (Mòbil i Pantalles petites)
+   ======================================================== */
+@media (max-width: 768px) {
+  .logo-title {
+    font-size: 1.6rem;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .detective-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .detective-identity {
+    min-width: auto;
+  }
+  .detective-stats {
+    justify-content: space-between;
+  }
+  .badges-row {
+    grid-template-columns: 1fr;
+  }
+  .challenge-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-actions-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
